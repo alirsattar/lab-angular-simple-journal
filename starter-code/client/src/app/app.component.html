@@ -1,3 +1,23 @@
-<h1>
-  {{title}}
-</h1>
+
+<div class="top-half">
+  
+  <form (submit)="sendEntry(newEntry)">
+    
+    <input type="text" name="entry-name" [(ngModel)] = "newEntry.title">
+    
+    <textarea name="entry-content" [(ngModel)] = "newEntry.content"></textarea>
+    
+    <button>SUBMIT</button>
+    
+  </form>
+  
+  <button (click)="getJournalEntry()">GET ENTRIES</button>
+
+</div>
+
+<div class="entries-container" *ngFor="let oneEntry of journalEntries">
+
+  <h2>{{oneEntry.title}}</h2>
+  <li>{{oneEntry.content}}</li>
+
+</div>
